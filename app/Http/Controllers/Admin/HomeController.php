@@ -18,9 +18,8 @@ class HomeController extends Controller
 
     public function index(): Factory|View|Application
     {
-        $categories = Category::all()->count();
         $packages = Package::all()->count();
 
-        return view('admin.home.index', compact(['categories', 'packages']));
+        return view('admin.home.index', compact('packages'));
     }
 }

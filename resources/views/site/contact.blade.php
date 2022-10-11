@@ -6,7 +6,7 @@
         <section class="contact-inner-page">
             <!-- ***Inner Banner html start form here*** -->
             <div class="inner-banner-wrap">
-                <div class="inner-baner-container" style="background-image: url(front/assets/images/img7.jpg);">
+                <div class="inner-baner-container" style="background-image: url(/front/assets/images/img7.jpg);">
                     <div class="container">
                         <div class="inner-banner-content">
                             <h1 class="page-title">Contact US</h1>
@@ -162,7 +162,7 @@
                     <div class="widget-content text-center">
                         <div class="profile">
                             <figure class="avatar">
-                                <img src="assets/images/img21.jpg" alt="">
+                                <img src="/front/assets/images/img21.jpg" alt="">
                             </figure>
                             <div class="text-content">
                                 <div class="name-title">

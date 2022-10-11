@@ -55,60 +55,26 @@
                 </div>
                 <div class="destination-section">
                     <div class="row">
-                        <div class="col-lg-4 col-md-6">
-                            <article class="destination-item" style="background-image: url(front/assets/images/img1.jpg);">
-                                <div class="destination-content">
-                                    <div class="rating-start-wrap">
-                                        <div class="rating-start">
-                                            <span style="width: 100%"></span>
+                        @foreach($packages as $package)
+                            <div class="col-lg-4 col-md-6">
+                                <article class="destination-item" style="background-image: url('/images/{{ $package->image }}');">
+                                    <div class="destination-content">
+                                        <div class="rating-start-wrap">
+                                            <div class="rating-start">
+                                                <span style="width: 100%"></span>
+                                            </div>
                                         </div>
+                                        <span class="cat-link">
+                                        <a href="#">{{ $package->destination }}</a>
+                                     </span>
+                                        <h3>
+                                            <a href="{{ url('/package/' . $package->id) }}">{{ $package->title }}</a>
+                                        </h3>
+                                        <p>{!! substr(strip_tags($package->description), 0, 40); !!}</p>
                                     </div>
-                                    <span class="cat-link">
-                                    <a href="destination.html">ITALY</a>
-                                 </span>
-                                    <h3>
-                                        <a href="{{ url('/package') }}">SAN MIGUEL</a>
-                                    </h3>
-                                    <p>Fusce hic augue velit wisi ips quibusdam pariatur, iusto.</p>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <article class="destination-item" style="background-image: url(front/assets/images/img2.jpg);">
-                                <div class="destination-content">
-                                    <div class="rating-start-wrap">
-                                        <div class="rating-start">
-                                            <span style="width: 100%"></span>
-                                        </div>
-                                    </div>
-                                    <span class="cat-link">
-                                    <a href="destination.html">Dubai</a>
-                                 </span>
-                                    <h3>
-                                        <a href="{{ url('/package') }}">BURJ KHALIFA</a>
-                                    </h3>
-                                    <p>Fusce hic augue velit wisi ips quibusdam pariatur, iusto.</p>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <article class="destination-item" style="background-image: url(front/assets/images/img3.jpg);">
-                                <div class="destination-content">
-                                    <div class="rating-start-wrap">
-                                        <div class="rating-start">
-                                            <span style="width: 100%"></span>
-                                        </div>
-                                    </div>
-                                    <span class="cat-link">
-                                    <a href="destination.html">Japan</a>
-                                 </span>
-                                    <h3>
-                                        <a href="{{ url('/package') }}">KYOTO TEMPLE</a>
-                                    </h3>
-                                    <p>Fusce hic augue velit wisi ips quibusdam pariatur, iusto.</p>
-                                </div>
-                            </article>
-                        </div>
+                                </article>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -127,134 +93,52 @@
                     </div>
                 </div>
                 <div class="package-section">
-                    <article class="package-item">
-                        <figure class="package-image" style="background-image: url(front/assets/images/img4.jpg);"></figure>
-                        <div class="package-content">
-                            <h3>
-                                <a href="{{ url('/package') }}">
-                                    EXPERIENCE THE GREAT HOLIDAY ON BEACH
-                                </a>
-                            </h3>
-                            <p>Laoreet, voluptatum nihil dolor esse quaerat mattis explicabo maiores, est aliquet porttitor! Eaque, cras, aspernatur.</p>
-                            <div class="package-meta">
-                                <ul>
-                                    <li>
-                                        <i class="fas fa-clock"></i>
-                                        7D/6N
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-user-friends"></i>
-                                        pax: 10
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        Malaysia
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="package-price">
-                            <div class="review-area">
-                                <span class="review-text">(25 reviews)</span>
-                                <div class="rating-start-wrap d-inline-block">
-                                    <div class="rating-start">
-                                        <span style="width: 80%"></span>
-                                    </div>
+                    @foreach($randomPackages as $package)
+                        <article class="package-item">
+                            <figure class="package-image" style="background-image: url('/images/{{ $package->image }}');"></figure>
+                            <div class="package-content">
+                                <h3>
+                                    <a href="{{ url('/package/' . $package->id) }}">
+                                        {{ $package->title }}
+                                    </a>
+                                </h3>
+                                <p>{!! substr(strip_tags($package->description), 0, 140) !!}</p>
+                                <div class="package-meta">
+                                    <ul>
+                                        <li>
+                                            <i class="fas fa-clock"></i>
+                                            {{ $package->time }}
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-user-friends"></i>
+                                            pax: {{ $package->people_count }}
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            {{ $package->destination }}
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
-                            <h6 class="price-list">
-                                <span>$750</span>
-                                / per person
-                            </h6>
-                            <a href="{{ url('/booking') }}" class="outline-btn outline-btn-white">Book now</a>
-                        </div>
-                    </article>
-                    <article class="package-item">
-                        <figure class="package-image" style="background-image: url(front/assets/images/img5.jpg);"></figure>
-                        <div class="package-content">
-                            <h3>
-                                <a href="{{ url('/package') }}">
-                                    SUMMER HOLIDAY TO THE OXOLOTAN RIVER
-                                </a>
-                            </h3>
-                            <p>Laoreet, voluptatum nihil dolor esse quaerat mattis explicabo maiores, est aliquet porttitor! Eaque, cras, aspernatur.</p>
-                            <div class="package-meta">
-                                <ul>
-                                    <li>
-                                        <i class="fas fa-clock"></i>
-                                        5D/4N
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-user-friends"></i>
-                                        pax: 10
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        Malaysia
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="package-price">
-                            <div class="review-area">
-                                <span class="review-text">(12 reviews)</span>
-                                <div class="rating-start-wrap d-inline-block">
-                                    <div class="rating-start">
-                                        <span style="width: 80%"></span>
+                            <div class="package-price">
+                                <div class="review-area">
+                                    <span class="review-text">({{ $package->views }} reviews)</span>
+                                    <div class="rating-start-wrap d-inline-block">
+                                        <div class="rating-start">
+                                            <span style="width: 80%"></span>
+                                        </div>
                                     </div>
                                 </div>
+                                <h6 class="price-list">
+                                    <span>${{ $package->price }}</span>
+                                    / per person
+                                </h6>
+                                <a href="{{ url('/booking') }}" class="outline-btn outline-btn-white">Book now</a>
                             </div>
-                            <h6 class="price-list">
-                                <span>$520</span>
-                                / per person
-                            </h6>
-                            <a href="{{ url('/booking') }}" class="outline-btn outline-btn-white">Book now</a>
-                        </div>
-                    </article>
-                    <article class="package-item">
-                        <figure class="package-image" style="background-image: url(front/assets/images/img6.jpg);"></figure>
-                        <div class="package-content">
-                            <h3>
-                                <a href="{{ url('/package') }}">
-                                    SANTORINI ISLAND'S WEEKEND VACATION
-                                </a>
-                            </h3>
-                            <p>Laoreet, voluptatum nihil dolor esse quaerat mattis explicabo maiores, est aliquet porttitor! Eaque, cras, aspernatur.</p>
-                            <div class="package-meta">
-                                <ul>
-                                    <li>
-                                        <i class="fas fa-clock"></i>
-                                        6D/5N
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-user-friends"></i>
-                                        pax: 10
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        Malaysia
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="package-price">
-                            <div class="review-area">
-                                <span class="review-text">(43 reviews)</span>
-                                <div class="rating-start-wrap d-inline-block">
-                                    <div class="rating-start">
-                                        <span style="width: 80%"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <h6 class="price-list">
-                                <span>$660</span>
-                                / per person
-                            </h6>
-                            <a href="{{ url('/booking') }}" class="outline-btn outline-btn-white">Book now</a>
-                        </div>
-                    </article>
+                        </article>
+                    @endforeach
                     <div class="section-btn-wrap text-center">
-                        <a href="package.html" class="round-btn">VIEW ALL PACKAGES</a>
+                        <a href="{{ url('/packages') }}" class="round-btn">VIEW ALL PACKAGES</a>
                     </div>
                 </div>
             </div>

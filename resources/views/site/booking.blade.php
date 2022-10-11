@@ -6,7 +6,7 @@
         <section class="booking-inner-page">
             <!-- ***Inner Banner html start form here*** -->
             <div class="inner-banner-wrap">
-                <div class="inner-baner-container" style="background-image: url(assets/images/img7.jpg);">
+                <div class="inner-baner-container" style="background-image: url(/front/assets/images/img7.jpg);">
                     <div class="container">
                         <div class="inner-banner-content">
                             <h1 class="page-title">Booking</h1>
@@ -21,7 +21,7 @@
                         <div class="col-lg-8 right-sidebar">
                             <!-- step one form html start -->
                             <div class="booking-form-wrap">
-                                <form method="get">
+                                <form method="POST" action="">
                                     <div class="booking-content">
                                         <div class="form-title">
                                             <span>1</span>
@@ -31,31 +31,25 @@
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label>First name*</label>
-                                                    <input type="text" class="form-control" name="firstname_booking">
+                                                    <input type="text" class="form-control" name="firstname">
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label>Last name*</label>
-                                                    <input type="text" class="form-control" name="lastname_booking">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label>Email*</label>
-                                                    <input type="email" class="form-control" name="email_booking">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label>Confirm Email*</label>
-                                                    <input type="email" class="form-control" name="email_booking">
+                                                    <input type="text" class="form-control" name="lastname">
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label>Phone*</label>
-                                                    <input type="text" class="form-control" name="lastname_booking">
+                                                    <input type="text" class="form-control" name="phone">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>&nbsp;</label>
+                                                    <button type="submit" class="round-btn">Submit Now</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -65,21 +59,6 @@
                             <!-- step one form html end -->
                         </div>
                         <div class="col-lg-4">
-                            <div class="price-table-summary">
-                                <h4 class="bg-title">To'lov</h4>
-                                <table>
-                                    <tbody>
-                                    <tr class="total">
-                                        <td>
-                                            <strong>Total cost</strong>
-                                        </td>
-                                        <td class="text-right">
-                                            <strong>$580</strong>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
                             <div class="widget-bg widget-support-wrap">
                                 <div class="icon">
                                     <i class="fas fa-phone-volume"></i>
@@ -122,7 +101,7 @@
                     <div class="widget-content text-center">
                         <div class="profile">
                             <figure class="avatar">
-                                <img src="assets/images/img21.jpg" alt="">
+                                <img src="/front/assets/images/img21.jpg" alt="">
                             </figure>
                             <div class="text-content">
                                 <div class="name-title">

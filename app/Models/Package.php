@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Package extends Model
 {
@@ -17,16 +16,11 @@ class Package extends Model
 
     protected $primaryKey = 'id';
 
-    protected $fillable = ['category_id', 'title', 'destination', 'description', 'image', 'price', 'people_count', 'status'];
+    protected $fillable = ['category', 'title', 'destination', 'description', 'image', 'price', 'people_count', 'status'];
 
     public function toActive(): void
     {
         $this->status = $this->status === 1 ? self::INACTIVE : self::ACTIVE;
         $this->save();
-    }
-
-    public function parent(): HasOne
-    {
-        return $this->hasOne(Category::class, 'id');
     }
 }

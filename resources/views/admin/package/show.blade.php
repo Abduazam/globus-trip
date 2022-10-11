@@ -27,7 +27,7 @@
                     <tr>
                         <td><b>Tur paket kategoriyasi</b></td>
                         <td>
-                            <span>{{ $package->parent->title }} </span>
+                            <span>{{ $package->category }} </span>
                         </td>
                     </tr>
                     <tr>

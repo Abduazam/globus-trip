@@ -16,12 +16,8 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group" data-select2-id="29">
-                            <label for="category_id">Tur paket kategoriyasi</label>
-                            <select id="category_id" name="category_id" class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                @foreach($categories as $category)
-                                    <option value="{{ $category->id }}" data-select2-id="{{ $category->id }}">{{ $category->title }}</option>
-                                @endforeach
-                            </select>
+                            <label for="category">Tur paket kategoriyasi</label>
+                            <input type="text" class="form-control" id="category" placeholder="Kategoriyasi.." name="category" required>
                         </div>
                     </div>
                     <div class="col-md-6">

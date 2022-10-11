@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('packages', static function (Blueprint $table) {
             $table->id();
-            $table->integer('category_id');
+            $table->string('category', 150);
             $table->string('title', 150);
             $table->string('destination', 150);
             $table->text('description');
@@ -18,6 +18,7 @@ return new class extends Migration
             $table->double('price');
             $table->string('time', 50);
             $table->integer('people_count');
+            $table->integer('views')->default(0);
             $table->integer('status')->default(1);
             $table->timestamps();
         });

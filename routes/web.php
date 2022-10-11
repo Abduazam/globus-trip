@@ -2,9 +2,10 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PackageController;
+use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Site\SiteController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,26 +18,16 @@ use App\Http\Controllers\Admin\HomeController;
 |
 */
 
-Route::get('/', static function () {
-    return view('site/index');
-});
-Route::get('about/', static function () {
-    return view('site/about');
-});
-Route::get('contact/', static function () {
-    return view('site/contact');
-});
-Route::get('booking/', static function () {
-    return view('site/booking');
-});
-Route::get('package/', static function () {
-    return view('site/package');
-});
+Route::get('/', [SiteController::class, 'index']);
+Route::get('/package/{id}', [SiteController::class, 'package'])->where(['id' => '[0-9]+']);
+Route::get('/packages', [SiteController::class, 'packages']);
+Route::get('/about', [SiteController::class, 'about']);
+Route::get('/contact', [SiteController::class, 'contact']);
+Route::get('/booking', [SiteController::class, 'booking']);
 
 Auth::routes();
 
 Route::middleware(['role:admin'])->prefix('dashboard')->group(static function () {
     Route::get('/', [HomeController::class, 'index']);
-    Route::resource('category', CategoryController::class);
     Route::resource('package', PackageController::class);
 });

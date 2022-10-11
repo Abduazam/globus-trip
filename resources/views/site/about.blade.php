@@ -6,7 +6,7 @@
         <section class="inner-page-wrap">
             <!-- ***Inner Banner html start form here*** -->
             <div class="inner-banner-wrap">
-                <div class="inner-baner-container" style="background-image: url(assets/images/img7.jpg);">
+                <div class="inner-baner-container" style="background-image: url(/front/assets/images/img7.jpg);">
                     <div class="container">
                         <div class="inner-banner-content">
                             <h1 class="page-title">About Us</h1>
@@ -22,7 +22,7 @@
                         <div class="col-lg-8">
                             <div class="about-content">
                                 <figure class="about-image">
-                                    <img src="assets/images/img27.jpg" alt="">
+                                    <img src="/front/assets/images/img27.jpg" alt="">
                                     <div class="about-image-content">
                                         <h3>WE ARE BEST FOR TOURS & TRAVEL SINCE 1985 !</h3>
                                     </div>
@@ -94,7 +94,7 @@
                     <div class="widget-content text-center">
                         <div class="profile">
                             <figure class="avatar">
-                                <img src="assets/images/img21.jpg" alt="">
+                                <img src="/front/assets/images/img21.jpg" alt="">
                             </figure>
                             <div class="text-content">
                                 <div class="name-title">

@@ -76,12 +76,6 @@
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <li class="nav-item">
-                        <a href="{{ route('category.index') }}" class="nav-link {{ request()->is('dashboard/category*') ? 'active' : '' }}">
-                            <i class="nav-icon fa fa-list"></i>
-                            <p>Kategoriya</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="{{ route('package.index') }}" class="nav-link {{ request()->is('dashboard/package*') ? 'active' : '' }}">
                             <i class="nav-icon fa fa-images"></i>
                             <p>Tur paketlar</p>

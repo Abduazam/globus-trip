@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
 use App\Models\Package;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\View;
@@ -22,15 +21,14 @@ class PackageController extends Controller
 
     public function create(): Factory|View|Application
     {
-        $categories = Category::where('status', 1)->get();
-        return view('admin.package.create', compact('categories'));
+        return view('admin.package.create');
     }
 
     public function store(Request $request): Factory|View|Application|RedirectResponse
     {
         $request->validate([
             'title' => 'required',
-            'category_id' => 'numeric|required',
+            'category' => 'required',
             'destination' => 'required|max:150',
             'time' => 'required|max:50',
             'price' => 'required',
@@ -47,7 +45,7 @@ class PackageController extends Controller
             }
 
             $package = new Package();
-            $package->category_id = $request->input('category_id');
+            $package->category = $request->input('category');
             $package->title = $request->input('title');
             $package->destination = $request->input('destination');
             $package->description = $request->input('text');
@@ -61,8 +59,7 @@ class PackageController extends Controller
         } catch (Throwable $e) {
             report($e);
 
-            $categories = Category::where('status', 1)->get();
-            return view('admin.package.create', compact('categories'));
+            return view('admin.package.create');
         }
     }
 
@@ -73,15 +70,14 @@ class PackageController extends Controller
 
     public function edit(Package $package): Factory|View|Application
     {
-        $categories = Category::where('status', 1)->get();
-        return view('admin.package.edit', compact(['package', 'categories']));
+        return view('admin.package.edit', compact('package'));
     }
 
     public function update(Request $request, Package $package): Factory|View|Application|RedirectResponse
     {
         $request->validate([
             'title' => 'required',
-            'category_id' => 'numeric|required',
+            'category' => 'required',
             'destination' => 'required|max:150',
             'time' => 'required|max:50',
             'price' => 'required',
@@ -101,7 +97,7 @@ class PackageController extends Controller
                 $request->image->move(public_path('images'), $newImageName);
             }
 
-            $package->category_id = $request->input('category_id');
+            $package->category = $request->input('category');
             $package->title = $request->input('title');
             $package->destination = $request->input('destination');
             $package->description = $request->input('text');
@@ -115,8 +111,7 @@ class PackageController extends Controller
         } catch (Throwable $e) {
             report($e);
 
-            $categories = Category::where('status', 1)->get();
-            return view('admin.package.update', compact(['package', 'categories']));
+            return view('admin.package.update', compact('package'));
         }
     }
 

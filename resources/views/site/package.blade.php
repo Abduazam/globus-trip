@@ -6,7 +6,7 @@
         <section class="package-inner-page">
             <!-- ***Inner Banner html start form here*** -->
             <div class="inner-banner-wrap">
-                <div class="inner-baner-container" style="background-image: url(assets/images/img7.jpg);">
+                <div class="inner-baner-container" style="background-image: url(/front/assets/images/img7.jpg);">
                     <div class="container">
                         <div class="inner-banner-content">
                             <h1 class="page-title">Package Deatil</h1>
@@ -23,16 +23,16 @@
                             <div class="single-packge-wrap">
                                 <div class="single-package-head d-flex align-items-center">
                                     <div class="package-title">
-                                        <h2>SUMMER HOLIDAY TO THE OXOLOTAN RIVER</h2>
+                                        <h2>{{ $package->title }}</h2>
                                         <div class="rating-start-wrap">
                                             <div class="rating-start">
-                                                <span style="width: 80%"></span>
+                                                <span style="width: 100%"></span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="package-price">
                                         <h6 class="price-list">
-                                            <span>$750</span>
+                                            <span>${{ $package->price }}</span>
                                             / per person
                                         </h6>
                                     </div>
@@ -41,71 +41,37 @@
                                     <ul>
                                         <li>
                                             <i class="fas fa-clock"></i>
-                                            7D/6N
+                                            {{ $package->time }}
                                         </li>
                                         <li>
                                             <i class="fas fa-user-friends"></i>
-                                            pax: 10
+                                            pax: {{ $package->people_count }}
                                         </li>
                                         <li>
                                             <i class="fas fa-swimmer"></i>
-                                            Category : Hangout
+                                            Category : {{ $package->category }}
                                         </li>
 
                                         <li>
                                             <i class="fas fa-map-marker-alt"></i>
-                                            Malaysia
+                                            {{ $package->destination }}
                                         </li>
                                     </ul>
                                 </div>
-                                <figure class="single-package-image">
-                                    <img src="assets/images/img27.jpg" alt="">
-                                </figure>
-                                <div class="package-content-detail">
-                                    <article class="package-overview">
-                                        <h3>OVERVIEW :</h3>
-                                        <p>Malesuada incidunt excepturi proident quo eros? Id interdum praesent magnis, eius cumque? Integer aptent officiis recusandae habitasse iure, quisque culpa! Nemo et? Vel excepteur pellentesque morbi ducimus porro commodo sollicitudin, quidem, cupiditate ligula doloribus recusandae non, hac, ullam per, natus parturient sollicitudin! Facilis vestibulum accumsan quisquam excepturi explicabo.</p>
-                                        <p>Quam aut, luctus hendrerit, laborum, dolor, consectetur scelerisque quisque feugiat sequi, ea ipsa consequat atque consectetur. Litora aute error eos.Placerat habitasse nascetur sit voluptatem ea sint facilisis! Esse sed lacus! Sociosqu ullamcorper venenatis in.</p>
-                                    </article>
-                                    <article class="package-include bg-light-grey">
-                                        <h3>INCLUDE & EXCLUDE :</h3>
-                                        <ul>
-                                            <li><i class="fas fa-check"></i>Specialized bilingual guide</li>
-                                            <li><i class="fas fa-times"></i>Guide Service Fee</li>
-                                            <li><i class="fas fa-check"></i>Private Transport</li>
-                                            <li><i class="fas fa-times"></i>Room Service Fees</li>
-                                            <li><i class="fas fa-check"></i>Entrance Fees</li>
-                                            <li><i class="fas fa-times"></i>Driver Service Fee</li>
-                                            <li><i class="fas fa-check"></i>Breakfast And Lunch Box</li>
-                                            <li><i class="fas fa-times"></i>Any Private Expenses</li>
-                                        </ul>
-                                    </article>
-                                    <article class="package-ininerary">
-                                        <h3>ITINERARY :</h3>
-                                        <p>Malesuada incidunt excepturi proident quo eros? Id interdum praesent magnis, eius cumque? Integer aptent officiis recusandae habitasse iure, quisque culpa!</p>
-                                        <ul>
-                                            <li>
-                                                <i aria-hidden="true" class="fas fa-dot-circle"></i>
-                                                <span>DAY 1</span>
-                                                Departure at the airport and arrival at the hotel
-                                            </li>
-                                            <li>
-                                                <i aria-hidden="true" class="fas fa-dot-circle"></i>
-                                                <span>DAY 2</span>
-                                                Visit the main museums and lunch included
-                                            </li>
-                                            <li>
-                                                <i aria-hidden="true" class="fas fa-dot-circle"></i>
-                                                <span>DAY 3</span>
-                                                Excursion in the natural oasis and picnic
-                                            </li>
-                                            <li>
-                                                <i aria-hidden="true" class="fas fa-dot-circle"></i>
-                                                <span>DAY 4</span>
-                                                Transfer to the airport and return to the agency
-                                            </li>
-                                        </ul>
-                                    </article>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <figure class="single-package-image">
+                                            <img src="{{ asset('/images/' . $package->image) }}" alt="">
+                                        </figure>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="package-content-detail">
+                                            <article class="package-overview">
+                                                <h3>OVERVIEW :</h3>
+                                                <p>{!! $package->description !!}</p>
+                                            </article>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

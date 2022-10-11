@@ -35,7 +35,7 @@
                         @foreach($packages as $package)
                             <tr>
                                 <td style="width: 10px;">{{ $package->id }}</td>
-                                <td>{{ $package->parent->title }}</td>
+                                <td>{{ $package->category }}</td>
                                 <td>{{ $package->title }}</td>
                                 <td>{{ $package->destination }}</td>
                                 <td>${{ $package->price }}</td>
