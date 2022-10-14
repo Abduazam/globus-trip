@@ -21,7 +21,8 @@
                         <div class="col-lg-8 right-sidebar">
                             <!-- step one form html start -->
                             <div class="booking-form-wrap">
-                                <form method="POST" action="">
+                                <form method="POST" action="{{ url('/sending') }}" enctype="multipart/form-data">
+                                    @csrf
                                     <div class="booking-content">
                                         <div class="form-title">
                                             <span>1</span>
@@ -30,23 +31,37 @@
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <label>First name*</label>
-                                                    <input type="text" class="form-control" name="firstname">
+                                                    <label for="firstname">First name*</label>
+                                                    <input type="text" id="firstname" class="form-control" name="firstname">
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <label>Last name*</label>
-                                                    <input type="text" class="form-control" name="lastname">
+                                                    <label for="lastname">Last name*</label>
+                                                    <input type="text" id="lastname" class="form-control" name="lastname">
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <label>Phone*</label>
-                                                    <input type="text" class="form-control" name="phone">
+                                                    <label for="phone">Phone*</label>
+                                                    <input type="text" id="phone" class="form-control" name="phone" required>
                                                 </div>
                                             </div>
+                                            <div class="col-sm-6"></div>
                                             <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="captcha">Captcha</label>
+                                                    <input id="captcha" type="text" class="form-control" placeholder="Enter Captcha" name="captcha" required>
+                                                    <div class="captcha pt-2">
+                                                        <span>{!! captcha_img() !!}</span>
+                                                        {{--                                                        <button type="button" class="btn btn-success refresh-captcha"></button>--}}
+                                                    </div>
+                                                    @error('captcha')
+                                                    <div class="alert alert-danger">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <label>&nbsp;</label>
                                                     <button type="submit" class="round-btn">Submit Now</button>

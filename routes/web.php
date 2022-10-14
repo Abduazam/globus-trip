@@ -24,6 +24,7 @@ Route::get('/packages', [SiteController::class, 'packages']);
 Route::get('/about', [SiteController::class, 'about']);
 Route::get('/contact', [SiteController::class, 'contact']);
 Route::get('/booking', [SiteController::class, 'booking']);
+Route::post('/sending', [SiteController::class, 'sending']);
 
 Auth::routes();
 

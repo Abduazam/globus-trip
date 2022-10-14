@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="/front/assets/vendors/fancybox/dist/jquery.fancybox.min.css">
     <!-- Fonts Awesome CSS -->
     <link rel="stylesheet" type="text/css" href="/front/assets/vendors/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/backend/plugins/fontawesome-free/css/all.min.css">
     <!-- Elmentkit Icon CSS -->
     <link rel="stylesheet" type="text/css" href="/front/assets/vendors/elementskit-icon-pack/assets/css/ekiticons.css">
     <!-- slick slider css -->
@@ -121,5 +122,18 @@
 <script src="/front/assets/vendors/fancybox/dist/jquery.fancybox.min.js"></script>
 <script src="/front/assets/vendors/slick-nav/jquery.slicknav.js"></script>
 <script src="/front/assets/js/custom.min.js"></script>
+
+<script type="text/javascript">
+    $(".refresh-captcha").click(function() {
+        $.ajax({
+            type: 'GET',
+            url: "{{ url('/booking') }}",
+            success: function(data) {
+                $(".captcha span").html(data.captcha);
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
